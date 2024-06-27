@@ -19,8 +19,8 @@ public class App {
     private static List<Method> METHODS = new ArrayList<>();
     public static void main(String[] args) throws Exception {
         while(true){
-            METHODS = new ArrayList<>();
-            print("select nun to invok :");
+            
+            print("select number to invok :");
             viewMainMethods();
             viewAnnotationMethods();
             System.out.println("[Count : 0] Quit");
@@ -61,15 +61,20 @@ public class App {
     //invoke methods have annotation at count
     private static void runMethod(Method method){
         print("[Run] : "  + method.toGenericString());
-            Stream.of(Runtime.class.getMethods())
-                .filter(m -> m.getName().startsWith("get"))
-                .forEach(m -> {
-                    try {
-                        m.invoke(Runtime.getRuntime());
-                    } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
-                        print(e);
-                    }
-            });
+            // Stream.of(Runtime.class.getMethods())
+            //     .filter(m -> m.getName().startsWith("get"))
+            //     .forEach(m -> {
+            //         try {
+            //             m.invoke(Runtime.getRuntime());
+            //         } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
+            //             print(e);
+            //         }
+            // });
+            try {
+                method.invoke(null, (Object)new String[]{});
+            } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
+                print(e);
+            }
         print("[end] : " + method.toGenericString());
     }
     //each main method
