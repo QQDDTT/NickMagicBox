@@ -1,4 +1,4 @@
-package works.animals;
+package works.animals.anni;
 
 public interface IAnimalDo {
     public void run();

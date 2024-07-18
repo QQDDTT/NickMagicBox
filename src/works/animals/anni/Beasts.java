@@ -1,12 +1,12 @@
-package works.animals;
+package works.animals.anni;
 
-public class Beasts implements IAnimalDo{
+public class Beasts extends Animal{
 
     public static  String className;
-    private final String name;
+    private String name;
 
     public Beasts(){
-        this.name = "";
+        super();
     }
     public static void getClassName(){
         System.out.println(className);
@@ -41,5 +41,7 @@ public class Beasts implements IAnimalDo{
     public void setName(String name) {
         this.name = name;
     }
+    public class INnerBeasts{
 
+    }
 }
