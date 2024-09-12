@@ -6,8 +6,26 @@ import java.time.format.*;
 public class Test {
 
     public static void main(String[] args) {
-        print("step 1",methodTest.demo1(1, 2));
-        print("step 2",methodTest.demo2(1, 2));
+        String[] letters = {"", "", "", ""};
+        int j = 0;
+        for(int i = 0; i < 26 ;i++){
+            letters[j] += (char)(i + 65);
+            if(i == 6 || i == 13 || i == 19){
+                j++;
+            }
+            if(i == 16 || i == 22){
+                letters[j] += " ";
+            }
+        }
+        printForm("letters", letters);
+
+        String a = "123";
+        String b = "123";
+        String c = new String(a);
+        print("a == b", "" + (a == b));
+        print("a == c", "" + (a == c));
+        print("b == c", "" + (b == c));
+        float num = 0.1f;
     }
 
     private static void print(String message, String text){
@@ -19,6 +37,25 @@ public class Test {
         System.out.print(message);
         System.out.print(" - ");
         System.out.println(text);
+    }
+
+    private static void printForm(String message, String...text){
+        String header = "【" + dateTime() + "】 - " + message + " - ";
+        String spaces = "";
+        for(int i = 0;i < header.length();i++){
+            spaces += " ";
+        }
+        System.err.println(header);
+        for(String t : text){
+            if(t == null){
+                System.out.println();
+            } else{
+                System.out.print(spaces);
+                System.out.println(t);
+            }
+
+        }
+
     }
 
     private static void date(){
@@ -35,11 +72,11 @@ public class Test {
         System.out.print(time.format(time_1));
     }
 
-    private static void dateTime(){
+    private static String dateTime(){
         ZonedDateTime dateTime = ZonedDateTime.now();
         ZonedDateTime nyTime = dateTime.withZoneSameInstant(ZoneId.of("Asia/Shanghai"));
         DateTimeFormatter date_1 = DateTimeFormatter.ISO_LOCAL_DATE_TIME;
         DateTimeFormatter date_0 = DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss");
-        System.out.print(nyTime.format(date_0));
+        return nyTime.format(date_0);
     }
 }
