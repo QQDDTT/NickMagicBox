@@ -25,7 +25,7 @@ public class Test {
         print("a == b", "" + (a == b));
         print("a == c", "" + (a == c));
         print("b == c", "" + (b == c));
-        float num = 0.1f;
+
     }
 
     private static void print(String message, String text){

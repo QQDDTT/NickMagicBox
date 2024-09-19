@@ -2,12 +2,17 @@ package works.animals.anni;
 
 public class Beasts extends Animal{
 
-    public static  String className;
+    public static  String className = Beasts.class.getSimpleName();
     private String name;
 
     public Beasts(){
         super();
     }
+
+    public Beasts(String name){
+        this.name = name;
+    }
+
     public static void getClassName(){
         System.out.println(className);
 

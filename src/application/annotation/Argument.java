@@ -1,16 +1,13 @@
-package pointers;
+package application.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-
-
 @Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.METHOD)
-
-public @interface MethodAnnotation{
-    String name() default "";
-
+@Target(ElementType.FIELD)
+public @interface Argument{
+    String[] values() default {""};
+    String key() default "";
 }

@@ -1,15 +1,17 @@
 package works.animals;
 
-import works.animals.anni.Animal;
-import works.animals.anni.Dog;
+import works.animals.anni.*;
+
 
 public class AppAnimal {
     public static void main(String... args){
         
-        Animal b = new Dog();
+        Beasts beasts = new Beasts(); 
+        beasts.setName("Bill");
+        beasts.run();
 
-        b.eat("meat");
-
+        Beasts b = new Beasts("Joe");
+        b.run();
     } 
 
 }
