@@ -8,7 +8,6 @@ import java.util.Scanner;
 import java.util.Map.Entry;
 
 import application.annotation.Argument;
-import application.annotation.Arguments;
 
 public class MethodInspect {
     private static MethodInspect INSPECTOR = new MethodInspect();
