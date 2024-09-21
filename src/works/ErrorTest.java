@@ -1,7 +1,10 @@
 package works;
 
+import application.annotation.Argument;
+
 public class ErrorTest {
-    public static void main(String...args) {
+    @Argument
+    public static void errorTest(String...args) {
         try(MySource s = new MySource()){
             s.test();
         }catch(Exception e){

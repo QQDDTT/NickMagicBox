@@ -1,8 +1,11 @@
 package works;
 
+import application.annotation.Argument;
+
 public class Logic {
 
-    public static void main(String...args){
+    @Argument
+    public static void logicTest(String...args){
         int num = 123;
         String text = "abc";
 

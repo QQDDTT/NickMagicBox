@@ -1,18 +1,18 @@
-## Getting Started
+# 项目名称
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+NickMagicBox
+用于Java基础的学习和研究
 
-## Folder Structure
+## 项目功能
+- 功能：运行项目后，通过反射机制，读取 src/works/ 下的　＠Argument　注解，运行注解下的方法
 
-The workspace contains two folders by default, where:
+## 环境要求
+- Java 版本：例如 Java 11 以上
+- 操作系统：例如 Windows, Linux
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+## 安装与运行
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
-
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+### 1. 克隆项目
+通过 Git 克隆项目代码：
+```bash
+git clone https://github.com/QQDDTT/NickMagicBox.git

@@ -1,8 +1,11 @@
 package works;
 
+import application.annotation.Argument;
+
 public class GenericsTest {
     @SuppressWarnings("unchecked")
-    public static void main(String...args){
+    @Argument
+    public static void genericsTest(String...args){
         @SuppressWarnings("rawtypes")
         InnerClass i = new InnerSubClass();
         i.fun("");

@@ -1,17 +1,20 @@
 package works.animals;
 
+import application.annotation.Argument;
 import works.animals.anni.*;
 
 
 public class AppAnimal {
-    public static void main(String... args){
+    @Argument
+    public static void animalTest(String... args){
         
-        Beasts beasts = new Beasts(); 
-        beasts.setName("Bill");
-        beasts.run();
-
-        Beasts b = new Beasts("Joe");
-        b.run();
+        Dog d = new Dog();
+        d.run();
+        Beasts b = new Dog();
+        Dog d2 = (Dog)b;
+        d2.run();
+        b.getClassName();
+        d2.getClassName();
     } 
 
 }

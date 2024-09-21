@@ -4,10 +4,13 @@ package works.streamTest;
 import java.lang.reflect.Field;
 import java.util.*;
 
+import application.annotation.Argument;
+
 public class StreamDemo {
     private static int fieldLength = 10;
     @SuppressWarnings({ "unchecked", "rawtypes" })
-    public static void main(String... args){
+    @Argument
+    public static void streamTest(String... args){
         Table table = new Table();
         try {
             table.setCells(createCells(10));

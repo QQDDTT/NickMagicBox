@@ -1,7 +1,10 @@
 package works.dataFactory;
 
+import application.annotation.Argument;
+
 public class DataFactoryApp {
-    public static void main(String[] args) throws Exception {
+    @Argument
+    public static void dataFactoryTest(String[] args) throws Exception {
         System.out.println("Hello, World!");
     }
 }
