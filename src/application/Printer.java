@@ -31,45 +31,45 @@ public class Printer {
 
     private static String getSpaces(int length) {
         String result = "";
-        for (int i = 0 ; i < length ; i++) {
+        for (int i = 0 ; i < length / 2 + 5 ; i++) {
             result += " ";
         }
         return result;
     }
 
     public static void info(Class<?> clazz, Method method, String...message) {
-        System.out.print(WHITE + getDateTime() + RESET);
-        System.out.print(" - ");
-        System.out.print(CYAN + APPLICATION_NAME + RESET);
-        System.out.print(" - ");
-        System.out.print(PURPLE + clazz.getSimpleName() + RESET);
-        System.out.print(" - ");
-        System.out.print(BLUE + method.getName() + RESET);
-        System.out.print(" - ");
-        System.out.print(GREEN + " [INFO] " + RESET);
-        int len = 47 + clazz.getSimpleName() .length() + method.getName().length();
+        String frontText = WHITE + getDateTime() + RESET
+                            + " - "
+                            + CYAN + APPLICATION_NAME + RESET
+                            + " - "
+                            + PURPLE + clazz.getSimpleName() + RESET
+                            + " - "
+                            + BLUE + method.getName() + RESET
+                            + " - "
+                            + GREEN + " [INFO] " + RESET;
         for(int i = 0 ; i < message.length ; i++) {
             if(i == 0){
+                System.out.print(frontText);
                 System.out.println(WHITE + message[i] + RESET);
             } else {
-                System.out.print(getSpaces(len));
+                System.out.print(getSpaces(frontText.length()));
                 System.out.println(WHITE + message[i] + RESET);
             }
         }
     }
 
     public static void info(String...message) {
-        System.out.print(WHITE + getDateTime() + RESET);
-        System.out.print(" - ");
-        System.out.print(CYAN + APPLICATION_NAME + RESET);
-        System.out.print(" - ");
-        System.out.print(GREEN + " [INFO] " + RESET);
-        int len = 42;
+        String frontText = WHITE + getDateTime() + RESET
+                            + " - "
+                            + CYAN + APPLICATION_NAME + RESET
+                            + " - "
+                            + GREEN + " [INFO] " + RESET;
         for(int i = 0 ; i < message.length ; i++) {
             if(i == 0){
+                System.out.print(frontText);
                 System.out.println(WHITE + message[i] + RESET);
             } else {
-                System.out.print(getSpaces(len));
+                System.out.print(getSpaces(frontText.length()));
                 System.out.println(WHITE + message[i] + RESET);
             }
         }
@@ -77,74 +77,76 @@ public class Printer {
 
     public static void err(Class<?> clazz, Method method, String...error) {
         System.out.print(WHITE + getDateTime() + RESET);
-        System.out.print(" - ");
-        System.out.print(CYAN + APPLICATION_NAME + RESET);
-        System.out.print(" - ");
-        System.out.print(PURPLE + clazz.getSimpleName() + RESET);
-        System.out.print(" - ");
-        System.out.print(BLUE + method.getName() + RESET);
-        System.out.print(" - ");
-        System.out.print(RED + " [ERROR] " + RESET);
-        int len = 48 + clazz.getSimpleName().length() + method.getName().length();
+        String frontText = WHITE + getDateTime() + RESET
+                            + " - "
+                            + CYAN + APPLICATION_NAME + RESET
+                            + " - "
+                            + PURPLE + clazz.getSimpleName() + RESET
+                            + " - "
+                            + BLUE + method.getName() + RESET
+                            + " - "
+                            + RED + " [ERROR] " + RESET;
         for(int i = 0 ; i < error.length ; i++) {
             if(i == 0){
-                System.out.println(WHITE + error[i] + RESET);
+                System.out.print(frontText);
+                System.out.println(RED + error[i] + RESET);
             } else {
-                System.out.print(getSpaces(len));
-                System.out.println(WHITE + error[i] + RESET);
+                System.out.print(getSpaces(frontText.length()));
+                System.out.println(RED + error[i] + RESET);
             }
         }
     }
+
     public static void err(String...error) {
-        System.out.print(WHITE + getDateTime() + RESET);
-        System.out.print(" - ");
-        System.out.print(CYAN + APPLICATION_NAME + RESET);
-        System.out.print(" - ");
-        System.out.print(GREEN + " [INFO] " + RESET);
-        int len = 12;
+        String frontText = WHITE + getDateTime() + RESET
+                            + " - "
+                            + CYAN + APPLICATION_NAME + RESET
+                            + " - "
+                            + RED + " [ERROR] " + RESET;
         for(int i = 0 ; i < error.length ; i++) {
             if(i == 0){
-                System.out.println(WHITE + error[i] + RESET);
+                System.out.print(frontText);
+                System.out.println(RED + error[i] + RESET);
             } else {
-                System.out.print(getSpaces(len));
-                System.out.println(WHITE + error[i] + RESET);
+                System.out.print(getSpaces(frontText.length()));
+                System.out.println(RED + error[i] + RESET);
             }
         }
     }
 
     public static void warn(Class<?> clazz, Method method, String...message) {
-        System.out.print(WHITE + getDateTime() + RESET);
-        System.out.print(" - ");
-        System.out.print(CYAN + APPLICATION_NAME + RESET);
-        System.out.print(" - ");
-        System.out.print(PURPLE + clazz.getSimpleName() + RESET);
-        System.out.print(" - ");
-        System.out.print(BLUE + method.getName() + RESET);
-        System.out.print(" - ");
-        System.out.print(YELLOW + " [WARNNING] " + RESET);
-        int len = 52 + clazz.getSimpleName().length() + method.getName().length();
+        String frontText = WHITE + getDateTime() + RESET
+                            + " - "
+                            + CYAN + APPLICATION_NAME + RESET
+                            + " - "
+                            + PURPLE + clazz.getSimpleName() + RESET
+                            + " - "
+                            + BLUE + method.getName() + RESET
+                            + " - "
+                            + YELLOW + " [WARNNING] " + RESET;
         for(int i = 0 ; i < message.length ; i++) {
             if(i == 0){
+                System.out.print(frontText);
                 System.out.println(YELLOW + message[i] + RESET);
             } else {
-                System.out.print(getSpaces(len));
+                System.out.print(getSpaces(frontText.length()));
                 System.out.println(YELLOW + message[i] + RESET);
             }
         }
     }
 
     public static void warn(String...message) {
-        System.out.print(WHITE + getDateTime() + RESET);
-        System.out.print(" - ");
-        System.out.print(CYAN + APPLICATION_NAME + RESET);
-        System.out.print(" - ");
-        System.out.print(YELLOW + " [WARNNING] " + RESET);
-        int len = 36;
+        String frontText = WHITE + getDateTime() + RESET
+                            + " - "
+                            + CYAN + APPLICATION_NAME + RESET
+                            + " - "
+                            + YELLOW + " [WARNNING] " + RESET;
         for(int i = 0 ; i < message.length ; i++) {
             if(i == 0){
+                System.out.print(frontText);
                 System.out.println(YELLOW + message[i] + RESET);
             } else {
-                System.out.print(getSpaces(len));
+                System.out.print(getSpaces(frontText.length()));
                 System.out.println(YELLOW + message[i] + RESET);
             }
         }

@@ -16,7 +16,7 @@ import functions.IClassConsumer;
 import functions.IMethodConsumer;
 
 public class App {
-    private static final String BASE_PATH = "./src";
+    private static final String BASE_PATH = "./src/works";
     private static List<Method> METHODS = new ArrayList<>();
     public static void main(String...args) throws Exception {        
         eachAnnotationMethods(new IMethodConsumer() {
@@ -42,9 +42,10 @@ public class App {
     private static void viewAnnotationMethods(){
         Queue<String> viewForm = new LinkedBlockingQueue<String>();
         viewForm.add("select number to invok :");
-        viewForm.add("[Count : 0]      Quit");
+        viewForm.add("[Count : 0] - Quit");
         for(int i = 0 ; i < METHODS.size() ; i++) {
-            viewForm.add("[Count : "  + (i + 1) + "]      Method : " + METHODS.get(i).getName());
+            Method m = METHODS.get(i);
+            viewForm.add("[Count : "  + (i + 1) + "] - class : " + m.getDeclaringClass().getSimpleName() + " - Method : " + m.getName());
         }
         Printer.info(viewForm.toArray(new String[]{}));
     }
