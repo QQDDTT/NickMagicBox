@@ -19,7 +19,6 @@ import functions.IMethodConsumer;
 public class App {
     private static final String BASE_PATH = "./src/works";
     private static List<Method> METHODS = new ArrayList<>();
-    private static Scanner scanner = new Scanner(System.in);
     public static void main(String...args) throws Exception {        
         eachAnnotationMethods(new IMethodConsumer() {
             @Override
@@ -33,7 +32,7 @@ public class App {
             if(num == 0){
                 break;
             }else{
-                runMethod(METHODS.get(num - 1));
+                runMethod(num);
             }
             if(continueWork()){
                 continue;
@@ -59,29 +58,29 @@ public class App {
 
     private static int inputNum(){
         try{
-            int num = scanner.nextInt();
-            if(num - 1 > METHODS.size()){
-                Printer.warn("Number " + num + " is out of methods size !");
-                return inputNum();
-            }else{
-                return num;
-            }
+            @SuppressWarnings("resource")
+            int num = new Scanner(System.in).nextInt();
+            return num;
         }catch(Exception e){
             Printer.err("Please enter number !");
-            scanner = new Scanner(System.in);
             return inputNum();
         }
     }
 
     //invoke methods have annotation at count
-    private static void runMethod(Method method){
-        MethodInspect.invok(method);
+    private static void runMethod(int index){
+        try{
+            MethodInspect.invok(METHODS.get(index - 1));
+        }catch(Exception e){
+            Printer.err(e.getMessage());
+        }
     }
 
     //
     private static boolean continueWork(){
         Printer.info("Enter <Y/N> to continue");
-        String str = scanner.nextLine().toUpperCase();
+        @SuppressWarnings("resource")
+        String str = new Scanner(System.in).nextLine().toUpperCase();
         if("Y".equals(str)){
             return true;
         }else if("N".equals(str)){
