@@ -12,12 +12,14 @@ import java.util.stream.Stream;
 import application.MethodInspect;
 import application.Printer;
 import application.annotation.Argument;
+
 import functions.IClassConsumer;
 import functions.IMethodConsumer;
 
 public class App {
     private static final String BASE_PATH = "./src/works";
     private static List<Method> METHODS = new ArrayList<>();
+    private static Scanner scanner = new Scanner(System.in);
     public static void main(String...args) throws Exception {        
         eachAnnotationMethods(new IMethodConsumer() {
             @Override
@@ -27,27 +29,48 @@ public class App {
         });
         while(true){
             viewAnnotationMethods();
-            @SuppressWarnings("resource")
-            int num = new Scanner(System.in).nextInt();
+            int num = inputNum();
             if(num == 0){
                 break;
             }else{
                 runMethod(METHODS.get(num - 1));
             }
+            if(continueWork()){
+                continue;
+            }else{
+                break;
+            }
         }
+        close();
     }
 
 
     //view methods have annotation
     private static void viewAnnotationMethods(){
         Queue<String> viewForm = new LinkedBlockingQueue<String>();
-        viewForm.add("select number to invok :");
+        viewForm.add("Select number to invok :");
         viewForm.add("[Count : 0] - Quit");
         for(int i = 0 ; i < METHODS.size() ; i++) {
             Method m = METHODS.get(i);
-            viewForm.add("[Count : "  + (i + 1) + "] - class : " + m.getDeclaringClass().getSimpleName() + " - Method : " + m.getName());
+            viewForm.add("[Count : "  + (i + 1) + "] - " + m.getDeclaringClass().getSimpleName() + " - " + m.getName());
         }
         Printer.info(viewForm.toArray(new String[]{}));
+    }
+
+    private static int inputNum(){
+        try{
+            int num = scanner.nextInt();
+            if(num - 1 > METHODS.size()){
+                Printer.warn("Number " + num + " is out of methods size !");
+                return inputNum();
+            }else{
+                return num;
+            }
+        }catch(Exception e){
+            Printer.err("Please enter number !");
+            scanner = new Scanner(System.in);
+            return inputNum();
+        }
     }
 
     //invoke methods have annotation at count
@@ -55,6 +78,22 @@ public class App {
         MethodInspect.invok(method);
     }
 
+    //
+    private static boolean continueWork(){
+        Printer.info("Enter <Y/N> to continue");
+        String str = scanner.nextLine().toUpperCase();
+        if("Y".equals(str)){
+            return true;
+        }else if("N".equals(str)){
+            return false;
+        }else{
+            return continueWork();
+        }
+    }
+
+    private static void close(){
+        Printer.info("You are welcome !", "Bye...");
+    }
 
     //each method has Annotation Main(**)
     private static void eachAnnotationMethods(IMethodConsumer func){
