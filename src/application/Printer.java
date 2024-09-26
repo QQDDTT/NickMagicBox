@@ -9,7 +9,7 @@ public class Printer {
     private static final String APPLICATION_NAME = "MAGIC BOX";
     // 
     private static final ZoneId ZONE_ID = ZoneId.of("Asia/Tokyo");
-    private static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss");
+    private static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss.SSS");
     // ANSI 转义码
     private static final String RESET = "\033[0m";  // 重置颜色
     private static final String RED = "\033[0;31m"; // 红色
