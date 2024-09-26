@@ -31,7 +31,7 @@ public class Printer {
 
     private static String getSpaces(int length) {
         String result = "";
-        for (int i = 0 ; i < length / 2 + 5 ; i++) {
+        for (int i = 0 ; i < length / 2 + 7 ; i++) {
             result += " ";
         }
         return result;
@@ -85,7 +85,7 @@ public class Printer {
                             + " - "
                             + BLUE + method.getName() + RESET
                             + " - "
-                            + RED + " [ERROR] " + RESET;
+                            + RED + "[ERROR] " + RESET;
         for(int i = 0 ; i < error.length ; i++) {
             if(i == 0){
                 System.out.print(frontText);
