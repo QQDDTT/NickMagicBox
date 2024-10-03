@@ -5,6 +5,7 @@ public abstract class Animal implements IAnimalDo{
     public Animal(){
         
     }
+    public abstract void sleep();
     public void doing(){}
     protected abstract class InnerAnimal{
 

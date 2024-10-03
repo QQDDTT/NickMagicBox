@@ -49,4 +49,9 @@ public class Beasts extends Animal{
     public class INnerBeasts{
 
     }
+    @Override
+    public void sleep() {
+        // TODO Auto-generated method stub
+
+    }
 }
