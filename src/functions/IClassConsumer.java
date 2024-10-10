@@ -9,4 +9,5 @@ public interface IClassConsumer extends Consumer<Class<?>>{
      */
     @Override
     public  void accept(Class<?> path);
+
 }

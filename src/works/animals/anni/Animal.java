@@ -6,15 +6,19 @@ public abstract class Animal implements IAnimalDo{
         
     }
     public abstract void sleep();
+    
     public void doing(){}
-    protected abstract class InnerAnimal{
-
-    }
 
 
-    protected static class StaticInnerAnimal{
-        public String name;
-        public static String id; 
-    }
+
+    // protected abstract class InnerAnimal{
+
+    // }
+
+
+    // protected static class StaticInnerAnimal{
+    //     public String name;
+    //     public static String id; 
+    // }
 
 }
