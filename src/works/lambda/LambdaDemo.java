@@ -47,6 +47,12 @@ public class LambdaDemo {
         });
 
         sup(() -> 1);
+
+        Dog d = new Dog (001, "Bill", 3);
+
+        d.createNameplate(a -> "<ID:" + a.getId() + " Name:" + a.getName() + ">")
+        .run(a -> System.out.println("I have plate :" + a));
+
     }
 
     static void func(Function<Integer,Integer> func){
