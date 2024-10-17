@@ -1,4 +1,4 @@
-package works;
+package works.collections;
 import java.util.*;
 import java.util.Map.Entry;
 import java.util.concurrent.ArrayBlockingQueue;
@@ -40,6 +40,5 @@ public class CollectionTest {
         m1.put("1", "456");
         System.out.println(m1.get("1"));
         Entry<?,?> e = null;
-
     }
 }
