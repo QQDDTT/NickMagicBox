@@ -12,7 +12,20 @@ public class SortTest {
         l1.sort((a, b) -> a - b);
 
         // l1.forEach(a -> System.out.println(a));
-        l1.forEach(System.out::println);
+        // l1.forEach(System.out::println);
+
+
+
+        List<Cell> cells = Arrays.asList(
+                new Cell(0, "tom"), 
+                new Cell(1, "bill"), 
+                new Cell(2, "allice")
+        );
+
+        cells.sort((a, b) -> a.getName().charAt(0) - b.getName().charAt(0));
+
+        cells.forEach(System.out::println);
+
     }
 
     

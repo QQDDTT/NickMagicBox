@@ -23,4 +23,8 @@ public class Cell {
     public String getName () {
         return this.name;
     }
+
+    public String toString() {
+        return "id:" + this.id + " name:" + this.name;
+    }
 }
