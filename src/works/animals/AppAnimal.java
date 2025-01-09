@@ -5,6 +5,8 @@ import works.animals.anni.*;
 
 
 public class AppAnimal {
+
+    @Argument(values = {"1","2","3"}, key = "test")
     @Argument
     public static void animalTest(String... args){
         

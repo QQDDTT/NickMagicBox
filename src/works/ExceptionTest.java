@@ -16,7 +16,7 @@ public class ExceptionTest {
             testB();
             a = "true";
             return a;
-        }catch(AException e){
+        }catch(AException | RuntimeException e){
             Printer.err(e.getMessage());
             a = "false";
             Printer.err(a);
